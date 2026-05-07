@@ -1,3 +1,6 @@
+using System.Formats.Asn1;
+using System.Globalization;
+
 public static class Arrays
 {
     /// <summary>
@@ -13,7 +16,20 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        //create a new list to store multiples
+
+        List<double> multiples = new();
+
+        //create a loop from 1 up to requested length
+        for (int i = 1; i <= length; i++)
+        {
+            //calculate the multiple by multiplying the number by i, and adding it to the multiples list
+            multiple.Add(number * i);
+        }
+
+        //convert list to an array to return the array
+
+        return multiple.ToArray(); // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +45,18 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        //get the last amount items
+        List<int> end = data.GetRange(data.Count - amount, amount);
+
+        //get the beginning items
+        List<int> beginning = data.GetRange(0, data.Count - amount);
+
+        //clear the original list
+        data.Clear();
+
+        //add the rotated parts back
+        data.AddRange(end);
+        data.AddRange(beginning);
     }
 }
