@@ -24,12 +24,12 @@ public static class Arrays
         for (int i = 1; i <= length; i++)
         {
             //calculate the multiple by multiplying the number by i, and adding it to the multiples list
-            multiple.Add(number * i);
+            multiples.Add(number * i);
         }
 
         //convert list to an array to return the array
 
-        return multiple.ToArray(); // replace this return statement with your own
+        return multiples.ToArray(); // replace this return statement with your own
     }
 
     /// <summary>
