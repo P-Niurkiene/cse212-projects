@@ -8,7 +8,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Adds cases to the queue in the correct priority, and dequeues correctly
     // Expected Result: A, C, B
-    // Defect(s) Found: A is not qeueing from the queue correctly and is returning to the queue 
+    // Defect(s) Found: A is being dequed insetad is returned to the front of the queue
     public void TestPriorityQueue_1()
     {
         var A = new PriorityItem("A", 5);
@@ -30,8 +30,8 @@ public class PriorityQueueTests
 
     [TestMethod]
     // Scenario: If there is multiple items with the high priority that the order still goes FIFO
-    // Expected Result: 
-    // Defect(s) Found: 
+    // Expected Result: A, D, C, B
+    // Defect(s) Found: A was not being dequeued correctly and D is replacing A instead of queing next to each other 
     public void TestPriorityQueue_2()
     {
         var A = new PriorityItem("A", 5);
