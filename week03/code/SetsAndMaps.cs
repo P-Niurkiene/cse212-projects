@@ -94,20 +94,30 @@ public static class SetsAndMaps
     public static bool IsAnagram(string word1, string word2)
     {
         // TODO Problem 3 - ADD YOUR CODE HERE
-        var word = new Dictionary<string, string>();
+        word1 = word1.Replace(" ", "").ToLower();
+        word2 = word2.Replace(" ", "").ToLower();
 
-        foreach (var letter in word1)
-        {
-            word1.Count = wordCount;
-        }
-        foreach (var letter in word2)
-        {
-            word2.Count = wordCount2;
-        }
-        if (wordCount = wordCount2)
-            return true;
-        else
+        if (word1.Length != word2.Length)
             return false;
+
+        var counts = new Dictionary<char, int>();
+        foreach (char letter in word1)
+        {
+            if (counts.ContainsKey(letter))
+                counts[letter]++;
+
+            else counts[letter] = 1;
+        }
+
+        foreach (char letter in word2)
+        {
+            if (counts.ContainsKey(letter))
+                counts[letter]--;
+
+            if (counts[letter] < 0)
+                return false;
+        }
+        return true;
     }
 
     /// <summary>
@@ -141,6 +151,6 @@ public static class SetsAndMaps
         // on those classes so that the call to Deserialize above works properly.
         // 2. Add code below to create a string out each place a earthquake has happened today and its magitude.
         // 3. Return an array of these string descriptions.
-        return [];
+        return .ToArray[];
     }
 }
