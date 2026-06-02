@@ -1,4 +1,6 @@
 using System.Collections;
+using System.ComponentModel.DataAnnotations;
+using System.IO.Compression;
 
 public static class Recursion
 {
@@ -15,7 +17,15 @@ public static class Recursion
     public static int SumSquaresRecursive(int n)
     {
         // TODO Start Problem 1
-        return 0;
+        if (n <= 1)
+        {
+            return 1;
+        }
+        else
+        {
+            return (SumSquaresRecursive(n - 1));
+        }
+
     }
 
     /// <summary>
@@ -40,6 +50,18 @@ public static class Recursion
     public static void PermutationsChoose(List<string> results, string letters, int size, string word = "")
     {
         // TODO Start Problem 2
+        if (letters.Length == 0)
+        {
+            System.Console.WriteLine(word); ;
+        }
+        else
+        {
+            for (var i = 0; < letters.Length; i++)
+            {
+                (len(letters)! / (len(letters) - size)!);
+                PermutationsChoose(letters, size, word);
+            }
+        }
     }
 
     /// <summary>
@@ -97,6 +119,10 @@ public static class Recursion
             return 4;
 
         // TODO Start Problem 3
+        else
+        {
+
+        }
 
         // Solve using recursion
         decimal ways = CountWaysToClimb(s - 1) + CountWaysToClimb(s - 2) + CountWaysToClimb(s - 3);
@@ -129,10 +155,11 @@ public static class Recursion
     {
         // If this is the first time running the function, then we need
         // to initialize the currPath list.
-        if (currPath == null) {
+        if (currPath == null)
+        {
             currPath = new List<ValueTuple<int, int>>();
         }
-        
+
         // currPath.Add((1,2)); // Use this syntax to add to the current path
 
         // TODO Start Problem 5
