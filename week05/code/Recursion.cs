@@ -132,7 +132,7 @@ public static class Recursion
 
 
         // Solve using recursion
-        decimal ways = CountWaysToClimb(s - 1) + CountWaysToClimb(s - 2) + CountWaysToClimb(s - 3);
+        decimal ways = CountWaysToClimb(s - 1, remember) + CountWaysToClimb(s - 2, remember) + CountWaysToClimb(s - 3, remember);
 
         remember[s] = ways;
         return ways;
@@ -189,6 +189,30 @@ public static class Recursion
 
         // TODO Start Problem 5
         // ADD CODE HERE
+        if (!maze.IsValidMove(currPath, x, y))
+        {
+            return;
+        }
+
+        currPath.Add((x, y));
+
+        if (maze.IsEnd(x, y))
+        {
+            results.Add(currPath.AsString());
+            return;
+        }
+
+        SolveMaze(results, maze, x + 1, y,
+        new List<ValueTuple<int, int>>(currPath));
+
+        SolveMaze(results, maze, x - 1, y,
+            new List<ValueTuple<int, int>>(currPath));
+
+        SolveMaze(results, maze, x, y + 1,
+            new List<ValueTuple<int, int>>(currPath));
+
+        SolveMaze(results, maze, x, y - 1,
+            new List<ValueTuple<int, int>>(currPath));
 
         // results.Add(currPath.AsString()); // Use this to add your path to the results array keeping track of complete maze solutions when you find the solution.
     }
